@@ -1,6 +1,7 @@
-package dev.zeroone.CadastroDeUsuarios;
+package dev.zeroone.CadastroDeUsuarios.Usuarios.Model;
 
 
+import dev.zeroone.CadastroDeUsuarios.Tarefas.Model.TarefaModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,10 @@ public class UsuarioModel {
     private String nome;
     private String email;
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "tarefa_id")
+    private TarefaModel tarefa;
 
 
     public UsuarioModel() {
@@ -35,7 +40,6 @@ public class UsuarioModel {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public int getIdade() {
         return idade;
